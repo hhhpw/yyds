@@ -1,0 +1,2 @@
+export const SET_WEB_SOCKET = "SET_WEB_SOCKET";
+export const SET_WEB_SOCKET_STATE = "SET_WEB_SOCKET_STATE";

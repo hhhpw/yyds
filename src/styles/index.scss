@@ -1,0 +1,21 @@
+@import "normalize";
+@import "element";
+
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+body,
+html {
+  color: #010e22;
+}
+
+body {
+  background: #F9EFE4;
+}
+// .font-rigelstar {
+//   font-family: Rigelstar;
+// }

@@ -1,0 +1,26 @@
+//min-width规则为：当媒体类型大于或是等于指定的宽度时，大括号内的样式生效；
+// @media screen and (min-width: 1270px) {
+//   .star-container {
+//     padding-left: calc((100% - 1248px) / 2);
+//     padding-right: calc((100% - 1248px) / 2);
+//   }
+// }
+
+// @media screen and (min-width: 769px) and (max-width: 1269px) {
+//   .star-container {
+//     padding-left: calc((100% -960px) / 2);
+//     padding-right: calc((100% -960px) / 2);
+//   }
+// }
+// // max-width规则为：当媒体类型小于或是等于指定的宽度时，大括号内的样式生效；
+// @media only screen and (max-width: 768px) {
+//   .star-container {
+//     padding-left: 12px;
+//     padding-right: 12px;
+//   }
+// }
+
+.star-container {
+  width: 1248px;
+  margin: 0 auto;
+}
