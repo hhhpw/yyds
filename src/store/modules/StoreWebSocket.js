@@ -12,7 +12,9 @@ const StoreWebSocket = {
     wsInstance: null,
   },
   mutations: {
-    [types.SET_WEB_SOCKET_STATE](state, value) {},
+    [types.SET_WEB_SOCKET_STATE](state, value) {
+      state.websocketState = value;
+    },
   },
   actions: {
     initWS({ commit }) {

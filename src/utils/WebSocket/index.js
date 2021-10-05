@@ -39,7 +39,7 @@ class WebSocket {
         // 发送心跳
         this.ws.send("ping");
       } else {
-        this.init();
+        // this.init();
       }
     }, 20000);
   }
@@ -57,7 +57,7 @@ class WebSocket {
     }
     // 重连尝试
     this.errorResetTimer = setTimeout(() => {
-      this.init();
+      // this.init();
       this.reconnetNumber++;
       YXLog.logWarning(`尝试重连webSocket第${this.reconnetNumber}次`);
     }, this.reconnetNumber * 1000);
@@ -68,13 +68,10 @@ class WebSocket {
     console.log("store", store);
     this.heartbeatDetectTimer && clearTimeout(this.heartbeatDetectTimer);
     this.ws = new WebSocket(this.url);
+    console.log("  this.ws", this.ws);
     this.ws.onopen = () => {
       // 通知连接状态状态
-      store.commit(
-        "StoreWebSocket/SET_WEB_SOCKET_STATE",
-        { value: 1 },
-        { root: true }
-      );
+      // store.commit("StoreWebSocket/SET_WEB_SOCKET_STATE", 1);
       this.reconnetNumber = 0;
       this.errorResetTimer = null;
       this.errorDispatchOpen = true;

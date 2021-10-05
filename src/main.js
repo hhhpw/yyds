@@ -22,4 +22,4 @@ app.use(store);
 app.use(router).use(i18n).mount("#app");
 
 // store.dispatch("StoreWebSocket/initWS");
-setTimeout(() => store.dispatch("StoreWebSocket/initWS"), 2000);
+// setTimeout(() => store.dispatch("StoreWebSocket/initWS"), 2000);
