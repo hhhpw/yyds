@@ -39,7 +39,7 @@ class YXLog {
   log(params) {
     this.baseLog(1, params);
   }
-  logSucess(params) {
+  logSuccess(params) {
     this.baseLog(2, params);
   }
   logWarning(params) {
