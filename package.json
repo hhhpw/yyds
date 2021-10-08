@@ -31,7 +31,8 @@
     "vue-i18n": "^9.1.7",
     "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "web3": "^1.6.0"
   },
   "devDependencies": {
     "@starcoin/starcoin": "^1.5.3",

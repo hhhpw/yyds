@@ -1,4 +1,3 @@
-import YXLog from "@utils/YXLog.js";
 import store from "@store";
 class VWebSocket {
   constructor(url, handleData = null) {
@@ -20,7 +19,7 @@ class VWebSocket {
       if (this.errorDispatchOpen && this.disConnetSource === "") {
         this.disConnetSource = type;
       }
-      YXLog.logError(`Disconneted VWebSocket from ${type} event`);
+      console.error(`Disconneted VWebSocket from ${type} event`);
       // 排除手动断开
       if (this.disConnetSource === type) {
         this.errorResetTimer && clearTimeout(this.errorResetTimer);
@@ -34,7 +33,6 @@ class VWebSocket {
     this.heartbeatDetectTimer && clearInterval(this.heartbeatDetectTimer);
     this.heartbeatDetectTimer = setInterval(() => {
       const state = this.getSocketState();
-      console.log("state", state, WebSocket);
       if (state === WebSocket.OPEN || state === WebSocket.CONNECTING) {
         // 发送心跳
         this.ws.send("ping");
@@ -54,21 +52,19 @@ class VWebSocket {
       this.reconnetNumber = 0;
       this.errorDispatchOpen = false;
       this.ws = null;
-      YXLog.logError("WS连接失败");
+      console.error("WS连接失败");
       return false;
     }
     // 重连尝试
     this.errorResetTimer = setTimeout(() => {
-      console.log("B");
       this.init();
       this.reconnetNumber++;
-      YXLog.logWarning(`尝试重连webSocket第${this.reconnetNumber}次`);
+      console.warn(`尝试重连webSocket第${this.reconnetNumber}次`);
     }, this.reconnetNumber * 1000);
   }
 
   // 初始化连接
   init() {
-    console.log("store", store);
     this.heartbeatDetectTimer && clearTimeout(this.heartbeatDetectTimer);
     this.ws = new WebSocket(this.url);
     this.ws.onopen = () => {
@@ -78,7 +74,7 @@ class VWebSocket {
       this.errorResetTimer = null;
       this.errorDispatchOpen = true;
       this.subscribe();
-      YXLog.logSuccess("WebSocket连接成功");
+      console.log("====WebSocket连接成功====");
       this.heartbeatDetect();
     };
     this.ws.onclose = this.handleError("close");
@@ -89,12 +85,11 @@ class VWebSocket {
   subscribe() {
     // 接受信息 要在这里处理容错情况
     this.ws.onmessage = (res) => {
-      // YXLog.log(res);
-      console.log("subscribe", res);
+      // console.log("subscribe", res);
       try {
         this.dispatchData && this.dispatchData(res);
       } catch (e) {
-        YXLog.logError("subscribe错误:" + e);
+        console.error("subscribe错误:" + e);
       }
     };
   }
@@ -131,7 +126,7 @@ class VWebSocket {
   // 手动连接
   open() {
     if (!this.isCloseSocket) {
-      YXLog.logError("VWebSocket already connected, do not connect again");
+      console.error("VWebSocket already connected, do not connect again");
     }
     this.heartbeatDetectTimer = null;
     this.reconnetNumber = 0;
@@ -147,6 +142,7 @@ class VWebSocket {
     this.errorResetTimer && clearTimeout(this.errorResetTimer);
     this.isCloseSocket = true;
     this.ws.close();
+    store.commit("StoreWebSocket/SET_WEB_SOCKET_STATE", 3);
   }
 }
 

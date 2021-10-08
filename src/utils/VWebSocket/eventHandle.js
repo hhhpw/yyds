@@ -1,38 +1,30 @@
-// import store from "@store";
-/* eslint-disable*/
 const pako = require("pako");
-const eventHandle = async (res) => {
-  // console.log("A", res.data.arrayBuffer());
-  // console.log("res", res.data instanceof Blob);
-  if (res.data instanceof Blob) {
-    // res.data.arrayBuffer().then((text) => {
-    //   console.log("text", text);
-    //   let t = JSON.parse(pako.inflate(text, { to: "string" }));
-    //   console.log("=====t=====", t);
-    // });
-    // console.log("====res====", res);
-    // const t = pako.inflate(new Uint8Array(res), { to: "string" });
-    // console.log(t);
+import store from "@store";
+
+/* eslint-disable*/
+
+const inflate = (data) => {
+  return new Promise((resolve) => {
     let reader = new FileReader();
-    reader.onload = function () {
-      console.log("reader.result", reader.result);
-      // console.log("aa", reader);
-      // const t = pako.inflate(reader.result);
-      // console.log("t", t);
-    };
-    reader.readAsArrayBuffer(res.data);
-    // var t = await new Response(res.data).text();
-    // console.log("t", t);
-    // reader.addEventListener("onload", function () {
-    //   console.log(
-    //     "e",
-    //     JSON.parse(pako.inflate(reader.result), { to: "string" })
-    //   );
-    // });
+    reader.addEventListener("loadend", () => {
+      let value = pako.inflateRaw(reader.result, { to: "string" });
+      if (value === "pong") {
+        resolve(value);
+      } else {
+        resolve(JSON.parse(value));
+      }
+    });
+    reader.readAsArrayBuffer(data);
+  });
+};
+const eventHandle = async (res) => {
+  if (res.data instanceof Blob) {
+    inflate(res.data).then((data) => {
+      if (data.table === "spot/candle60s") {
+        store.commit("StoreWebSocket/SET_WEB_SOCKET_TEST_DATA", data.data);
+      }
+    });
   }
-  // const result = JSON.parse(res.data);
-  // {"arg":{"channel":"candle1D","instId":"LTC-USDT"},
-  // "data":[["1624636800000","128.03","129.41","118.58","121.96","422657.544073","53056957.286635"]]}
   //
   // 需要与后端约定返回的type字段
   // 例如：trade、kline等
