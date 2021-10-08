@@ -14,6 +14,12 @@ const routes = [
         name: "home",
         meta: { title: "Demo", icon: "test", affix: true, url: "/" },
       },
+      {
+        path: "/trade",
+        component: () => import("@views/Trade/Index.vue"),
+        name: "trade",
+        meta: { title: "交易", affix: true, url: "/trade" },
+      },
     ],
   },
 ];

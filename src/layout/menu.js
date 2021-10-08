@@ -32,4 +32,8 @@ export default [
       },
     ],
   },
+  {
+    label: "交易",
+    path: "/trade",
+  },
 ];
