@@ -111,20 +111,20 @@ export default {
     const resolveSymbol = () => {
       return new Promise((resolve) => {
         resolve({
-          name: symbol.value,
+          name: symbol.value, // 商品名称/交易对
           full_name: symbol.value,
-          description: symbol.value,
-          type: symbol.value,
-          session: "24x7",
-          exchange: "HuoBi",
-          listed_exchange: symbol.value,
-          timezone: "Asia/Shanghai",
-          format: "price",
-          pricescale: Math.pow(10, symbolInfo.value["price-precision"]),
-          minmov: 1,
-          volume_precision: symbolInfo.value["value-precision"],
-          has_intraday: true,
-          supported_resolutions: supported_resolutions,
+          description: symbol.value, // 商品描述
+          type: symbol.value, // 仪表的可选类型 'bitcoin'
+          session: "24x7", // 商品交易时间段 "HHMM-HHMM"
+          exchange: "HuoBi", // 交易所简称 同 listed_exchange
+          listed_exchange: symbol.value, // 交易所简称
+          timezone: "Asia/Shanghai", // 时区
+          format: "price", //在价格刻度上标签格式  price/volume
+          pricescale: Math.pow(10, symbolInfo.value["price-precision"]), // 价格精度
+          minmov: 1, //最小波动价格
+          volume_precision: symbolInfo.value["value-precision"], // 以整数显示成交量数字的小数位
+          has_intraday: true, // 是否有日内(分钟)历史数据
+          supported_resolutions: supported_resolutions, // 周期数组
         });
       });
     };
@@ -144,15 +144,15 @@ export default {
     /** 初始化trading-view */
     const initTradingView = () => {
       widget.value = new TvWidget({
-        fullscreen: true,
-        symbol: symbol.value,
-        interval: intervalMap[interval.value],
-        container_id: "tv_chart_container",
-        datafeed: datafeed.value,
-        library_path: "/charting_library/",
-        locale: "zh",
-        theme: "Dark",
-        timezone: "Asia/Shanghai",
+        fullscreen: true, //是否充满屏幕
+        symbol: symbol.value, // 商品信息/交易对信息
+        interval: intervalMap[interval.value], // 周期
+        container_id: "tv_chart_container", // 元素id
+        datafeed: datafeed.value, // dataFeed 封装后数据
+        library_path: "/charting_library/", // tv 图表库地址
+        locale: "zh", // 语言
+        theme: "Dark", // 盘面主题风格
+        timezone: "Asia/Shanghai", // 时区
       });
     };
     const setSymbol = (newSymbol) => {
