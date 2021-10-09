@@ -28,6 +28,6 @@ const route = useRoute();
 
 <style lang="scss" scoped>
 .star-main {
-  padding-top: 24px;
+  // padding-top: 24px;
 }
 </style>

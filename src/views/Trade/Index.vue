@@ -55,6 +55,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.trade {
+  width: 80%;
+  height: 80%;
+}
 ::v-deep(.el-main) {
   padding: 0;
 }
