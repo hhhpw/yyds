@@ -11,10 +11,6 @@ import { ElInfiniteScroll } from "element-plus";
 
 const app = createApp(App);
 installElementPlus(app);
-
-console.log("store", store);
-
-//
 // app.use(ElementPlus);
 app.use(ElInfiniteScroll);
 app.use(store);
