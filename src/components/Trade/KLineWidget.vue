@@ -154,7 +154,7 @@ export default {
         locale: "zh", // 语言
         theme: "Dark", // 盘面主题风格
         timezone: "Asia/Shanghai", // 时区
-        width: 900,
+        width: "100%",
         height: 700,
         toolbar_bg: "#090808",
       });

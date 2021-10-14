@@ -1,0 +1,99 @@
+.kiko-dex-content {
+  width: calc(100% - 32px);
+  min-height: 100vh;
+  padding: 5px 16px;
+}
+.dex-sidebar {
+  width: 88px;
+  height: 100vh;
+  background: #090808;
+  overflow: hidden;
+  float: left;
+}
+.dex-sidebar-show {
+  width: 246px !important;
+}
+.dex-content-box {
+  width: calc(100% - 93px);
+  float: left;
+  margin-left: 5px;
+  overflow: hidden;
+  .dex-content {
+    width: 75%;
+    height: 751px;
+    float: left;
+  }
+  .dex-header {
+    width: 100%;
+    height: 46px;
+    background: #090808;
+    margin-bottom: 5px;
+  }
+  .dex-trading-kline-hide {
+    width: 70%;
+    float: left;
+  }
+  .dex-trading-kline-show {
+    width: 69.9%;
+    float: left;
+  }
+  .dex-online-list {
+    width: 29.4%;
+    height: 700px;
+    margin-left: 5px;
+    background: #090808;
+    float: left;
+  }
+  .dex-trade {
+    width: 24.5%;
+    height: 751px;
+    margin-left: 5px;
+    float: left;
+    background: #090808;
+  }
+}
+.dex-content-box-show {
+  width: calc(100% - 251px) !important;
+}
+.dex-entrust-panel {
+  width: calc(100% - 93px);
+  height: calc(100vh - 800px);
+  float: left;
+  margin-left: 5px;
+  margin-top: 5px;
+  background: #090808;
+}
+.dex-entrust-panel-show {
+  width: calc(100% - 251px) !important;
+}
+@media screen and (min-width: 1440px) {
+  .dex-trade {
+    width: 24.5% !important;
+  }
+}
+@media screen and (min-width: 1680px) {
+  .dex-trade {
+    width: 24.6% !important;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .dex-content-box {
+    .dex-content {
+      .dex-online-list {
+        width: 29.5%;
+      }
+    }
+  }
+}
+@media screen and (min-width: 2344px) {
+  .dex-content-box {
+    .dex-content {
+      .dex-online-list {
+        width: 29.7%;
+      }
+    }
+    .dex-trade {
+      width: 24.7%;
+    }
+  }
+}
