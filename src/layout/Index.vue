@@ -1,6 +1,5 @@
 <template>
   <div class="star-layout">
-    <side-bar class="star-sidebar-wrap"></side-bar>
     <div>
       <keep-alive>
         <nav-bar></nav-bar>
@@ -12,15 +11,16 @@
 
 <script setup>
 import AppMain from "./AppMain.vue";
-import SideBar from "./SideBar.vue";
 import NavBar from "./NavBar.vue";
 </script>
 
 <style lang="scss" scoped>
 .star-layout-content {
   // background-size: 100% 90%;
-}
-
-.star-sidebar-wrap {
+  width: calc(100%);
+  min-height: 100vh;
+  margin-top: 72px;
+  background: #191d28;
+  margin-bottom: 5px;
 }
 </style>

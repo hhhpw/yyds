@@ -1,2 +1,2 @@
-import { EventEmitter } from 'events'
-export default EventEmitter
+import { EventEmitter } from "events";
+export default EventEmitter;

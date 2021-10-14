@@ -1,3 +1,3 @@
-import qs from 'query-string'
+import qs from "query-string";
 
-export default qs
+export default qs;

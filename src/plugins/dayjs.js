@@ -1,3 +1,3 @@
-import dayJS from 'dayjs'
+import dayJS from "dayjs";
 
-export default dayJS
+export default dayJS;

@@ -113,6 +113,7 @@ export default {
         resolve({
           name: symbol.value, // 商品名称/交易对
           full_name: symbol.value,
+          autosize: true,
           description: symbol.value, // 商品描述
           type: symbol.value, // 仪表的可选类型 'bitcoin'
           session: "24x7", // 商品交易时间段 "HHMM-HHMM"
@@ -144,7 +145,7 @@ export default {
     /** 初始化trading-view */
     const initTradingView = () => {
       widget.value = new TvWidget({
-        fullscreen: true, //是否充满屏幕
+        fullscreen: false, //是否充满屏幕
         symbol: symbol.value, // 商品信息/交易对信息
         interval: intervalMap[interval.value], // 周期
         container_id: "tv_chart_container", // 元素id
@@ -153,6 +154,9 @@ export default {
         locale: "zh", // 语言
         theme: "Dark", // 盘面主题风格
         timezone: "Asia/Shanghai", // 时区
+        width: 900,
+        height: 700,
+        toolbar_bg: "#090808",
       });
     };
     const setSymbol = (newSymbol) => {
