@@ -22,7 +22,7 @@ import {
 } from "vue";
 import { useStore } from "vuex";
 import web3 from "@utils/getWeb3";
-import metamask from "@utils/metamask";
+// import metamask from "@utils/metamask";
 
 console.log("metamask", metamask);
 

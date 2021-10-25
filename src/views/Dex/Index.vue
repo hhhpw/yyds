@@ -25,7 +25,9 @@
         </div>
         <div class="dex-online-list"></div>
       </div>
-      <div class="dex-trade"></div>
+      <div class="dex-trade">
+        <dex-send-trade-panel></dex-send-trade-panel>
+      </div>
     </div>
     <div
       :class="
@@ -38,6 +40,7 @@
 </template>
 <script setup>
 import dexTradeKline from "../Trade/Index.vue";
+import dexSendTradePanel from "@/components/Dex/Trade/Index.vue";
 import { reactive } from "vue";
 let state = reactive({
   sidebarVisible: false,
